@@ -1,6 +1,12 @@
-@extends('layouts.plantillabase');
+@extends('adminlte::page')
 
-@section('contenido')
+@section('title', 'Crear Nueva Actividad')
+
+@section('content_header')
+    <h1>Crear Nueva Actividad</h1>
+@stop
+
+@section('content')
     <h1>Crear un nueva actividad</h1>
     <form action="/actividades" method="POST">
         @csrf
@@ -17,8 +23,8 @@
                 <label for="validationCustom04" class="form-label">Tipo de Unidad</label>
                 <select name="tipounidad" class="form-select" id="validationCustom04" required>
                     <option selected disabled value="">Selecciona una opción...</option>
-                    <option>Zona Urbana</option>
-                    <option>Zona Hotelera</option>
+                    <option value="Zona Urbana">Zona Urbana</option>
+                    <option Value="Zona Hotelera">Zona Hotelera</option>
                 </select>
             </div>
             <div class="col mb-3">
@@ -30,13 +36,20 @@
             <label for="validationCustom04" class="form-label">Estado</label>
             <select name="estatus" class="form-select" id="validationCustom04" required>
                 <option selected disabled value="">Selecciona una opción...</option>
-                <option>Sin Realizar</option>
-                <option>En Proceso</option>
-                <option>Pendiente</option>
-                <option>Realizado</option>
+                <option value="Sin Realizar">Sin Realizar</option>
+                <option value="En Proceso">En Proceso</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Realizado">Realizado</option>
             </select>
         </div>
         <a href="/actividades" class="btn btn-secondary" tabindex="5">Cancelar</a>
         <button type="submit" class="btn btn-primary" tabindex="4">Submit</button>
     </form>
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+@stop

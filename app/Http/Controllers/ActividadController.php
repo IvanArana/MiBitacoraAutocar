@@ -19,6 +19,17 @@ class ActividadController extends Controller
     {
         $misactividades=Actividad::all();
         return view('actividad.index')->with('misactividades',$misactividades);
+
+    }
+
+    public function __clone()
+    {
+        $this->$misactividades=Actividad::all();
+
+
+        $misactividades2 = clone $misactividades;
+        return view('actividad.index')->with('misactividades2',$misactividades2);
+
     }
 
     /**
@@ -46,6 +57,7 @@ class ActividadController extends Controller
         $misactividades->tipounidad = $request->get('tipounidad');
         $misactividades->numunidad = $request->get('numunidad');
         $misactividades->estatus = $request->get('estatus');
+        
 
         $misactividades->save();
 
